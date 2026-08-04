@@ -37,7 +37,6 @@
 <x-dc>
 <helmet>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <script src="./image-slot.js"></script>
   <style>
     body { margin: 0; background: #FBF6EE; }
     a { color: #7A5C3E; }
@@ -49,13 +48,16 @@
 
   <!-- NAV -->
   <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:#FBF6EE;border-bottom:1px solid #E7DCC9">
-    <div style="font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:#4A6B4E">Homemade with Love</div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <img src="./uploads/logo.png" alt="Homemade with Love logo" style="height:32px;width:auto">
+      <div style="font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:#4A6B4E">Homemade with Love</div>
+    </div>
     <a href="mailto:homemadewithlove4usa@gmail.com" style="text-decoration:none;background:#4A6B4E;color:#FFF9EE;font-weight:700;font-size:13px;padding:9px 14px;border-radius:6px;white-space:nowrap">Email Us to Order</a>
   </div>
 
   <!-- HEADER / HERO -->
   <div style="padding:0">
-    <image-slot id="hero" shape="rect" placeholder="Hero photo: someone smiling, holding a product" style="width:100%;aspect-ratio:4/3"></image-slot>
+    <img src="./uploads/hero.jpg" alt="Homemade with Love products, hand-styled" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     <div style="padding:32px 24px 28px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <span style="font-size:13px;font-weight:800;letter-spacing:0.06em;color:#9B3B34;text-transform:uppercase">★ Proudly Made in the USA</span>
@@ -77,35 +79,35 @@
     <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin:0 0 20px;color:#4A6B4E">Our Products</h2>
     <div style="display:flex;flex-direction:column;gap:18px">
       <div style="display:flex;gap:14px;align-items:center;background:#FFFDF8;border:1px solid #E7DCC9;border-radius:10px;padding:12px">
-        <image-slot id="p-lip" shape="rounded" radius="8" placeholder="Lip balms" style="width:88px;height:88px;flex:none"></image-slot>
+        <img src="./uploads/p-lip.jpg" alt="Lip balm tin" style="width:88px;height:88px;flex:none;border-radius:8px;object-fit:cover">
         <div>
           <div style="font-weight:800;font-size:16px;margin-bottom:3px">Lip Balms</div>
           <div style="font-size:14px;color:#5C5045;line-height:1.4">Soothing, all-natural, gentle enough for daily use.</div>
         </div>
       </div>
       <div style="display:flex;gap:14px;align-items:center;background:#FFFDF8;border:1px solid #E7DCC9;border-radius:10px;padding:12px">
-        <image-slot id="p-scrub" shape="rounded" radius="8" placeholder="Bath scrubs" style="width:88px;height:88px;flex:none"></image-slot>
+        <img src="./uploads/p-scrub.jpg" alt="Bath scrub" style="width:88px;height:88px;flex:none;border-radius:8px;object-fit:cover">
         <div>
           <div style="font-weight:800;font-size:16px;margin-bottom:3px">Bath Scrubs</div>
           <div style="font-size:14px;color:#5C5045;line-height:1.4">Hand-mixed exfoliating scrubs that leave skin soft, never stripped.</div>
         </div>
       </div>
       <div style="display:flex;gap:14px;align-items:center;background:#FFFDF8;border:1px solid #E7DCC9;border-radius:10px;padding:12px">
-        <image-slot id="p-lotion" shape="rounded" radius="8" placeholder="Lotions & creams" style="width:88px;height:88px;flex:none"></image-slot>
+        <img src="./uploads/p-lotion.jpg" alt="Rosehip lavender hydrating lotion" style="width:88px;height:88px;flex:none;border-radius:8px;object-fit:cover">
         <div>
           <div style="font-weight:800;font-size:16px;margin-bottom:3px">Lotions &amp; Creams</div>
           <div style="font-size:14px;color:#5C5045;line-height:1.4">Deep, lasting moisture with simple, allergen-free ingredients.</div>
         </div>
       </div>
       <div style="display:flex;gap:14px;align-items:center;background:#FFFDF8;border:1px solid #E7DCC9;border-radius:10px;padding:12px">
-        <image-slot id="p-towel" shape="rounded" radius="8" placeholder="Customized cloth towels" style="width:88px;height:88px;flex:none"></image-slot>
+        <img src="./uploads/p-towel.jpg" alt="Embroidered patriotic cloth towel" style="width:88px;height:88px;flex:none;border-radius:8px;object-fit:cover">
         <div>
           <div style="font-weight:800;font-size:16px;margin-bottom:3px">Customized Cloth Towels</div>
           <div style="font-size:14px;color:#5C5045;line-height:1.4">Soft, personalized towels made for gifting or everyday use.</div>
         </div>
       </div>
       <div style="display:flex;gap:14px;align-items:center;background:#FFFDF8;border:1px solid #E7DCC9;border-radius:10px;padding:12px">
-        <image-slot id="p-roller" shape="rounded" radius="8" placeholder="Essential oil rollers" style="width:88px;height:88px;flex:none"></image-slot>
+        <img src="./uploads/p-roller.jpg" alt="Essential oil roller bottle" style="width:88px;height:88px;flex:none;border-radius:8px;object-fit:cover">
         <div>
           <div style="font-weight:800;font-size:16px;margin-bottom:3px">Essential Oil Rollers</div>
           <div style="font-size:14px;color:#5C5045;line-height:1.4">Ready-to-use rollers blended in small batches for calm, everyday moments.</div>
@@ -130,7 +132,7 @@
   <!-- DEBBY'S STORY -->
   <div style="padding:34px 24px">
     <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin:0 0 18px;color:#4A6B4E">Debby's Story</h2>
-    <image-slot id="debby" shape="rounded" radius="12" placeholder="Photo of Debby" style="width:100%;aspect-ratio:4/3;margin-bottom:18px"></image-slot>
+    <img src="./uploads/debby.jpg" alt="Debby hand-blending a batch of essential oil roller" style="width:100%;aspect-ratio:4/3;margin-bottom:18px;border-radius:12px;object-fit:cover;display:block">
     <p style="font-size:16px;line-height:1.65;color:#3B322A;margin:0">I've dealt with severe allergies most of my life, and it got to a point where I couldn't trust what was on the shelves anymore — so I started making my own. That's how Homemade with Love began. My grandfather served in WWII, and my son serves today, so "made in the USA" isn't just a label to me — it's personal. Every batch I make is small, allergen-free, and made with ingredients from other small American businesses, because I want you to feel as good using it as I do making it.</p>
   </div>
 
@@ -138,7 +140,7 @@
   <div style="background:#9B3B34;color:#FFF3EF;padding:34px 24px">
     <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin:0 0 14px">Gift-Ready, Anytime</h2>
     <p style="font-size:16px;line-height:1.6;margin:0 0 18px;color:#FBE3DE">Perfect for Mother's Day, the holidays, or just because. Ask about gift baskets and custom combinations made just for the person you're giving to.</p>
-    <image-slot id="gift" shape="rounded" radius="12" placeholder="Gift basket photo" style="width:100%;aspect-ratio:4/3"></image-slot>
+    <img src="./uploads/gift.jpg" alt="Gift-ready Homemade with Love products" style="width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block">
   </div>
 
   <!-- FINAL CTA -->
