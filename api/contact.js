@@ -36,7 +36,7 @@ module.exports = async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Homemade with Love Website <onboarding@resend.dev>',
+        from: 'Homemade with Love Website <orders@homemadewithlove4usa.com>',
         to: ['homemadewithlove4usa@gmail.com'],
         reply_to: email,
         subject: `New order inquiry from ${name}`,
@@ -47,9 +47,7 @@ module.exports = async function handler(req, res) {
     if (!resendRes.ok) {
       const errText = await resendRes.text();
       console.error('Resend error:', errText);
-      // TEMP DEBUG: surfacing the real error to the caller while we diagnose setup.
-      // Will be reverted to a generic message once sending is confirmed working.
-      res.status(502).json({ error: 'Something went wrong sending your message. Please email us directly.', debug: errText });
+      res.status(502).json({ error: 'Something went wrong sending your message. Please email us directly.' });
       return;
     }
 
