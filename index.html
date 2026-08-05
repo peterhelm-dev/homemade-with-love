@@ -158,7 +158,28 @@
     <div>Homemade. US-Made. Made with Love.</div>
   </div>
 
+  <!-- EMAIL FALLBACK TOAST -->
+  <div id="hwl-toast" role="status" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#3B322A;color:#FFF9EE;padding:10px 18px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:9999;white-space:nowrap">Email copied — homemadewithlove4usa@gmail.com</div>
+
 </div>
+
+<script>
+function hwlEmailFallback() {
+  var email = "homemadewithlove4usa@gmail.com";
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(email).catch(function () {});
+  }
+  var toast = document.getElementById('hwl-toast');
+  if (toast) {
+    toast.style.opacity = '1';
+    clearTimeout(toast._hwlTimer);
+    toast._hwlTimer = setTimeout(function () { toast.style.opacity = '0'; }, 3500);
+  }
+}
+document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+  a.addEventListener('click', hwlEmailFallback);
+});
+</script>
 
 </x-dc>
 </body>
