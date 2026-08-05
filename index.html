@@ -143,12 +143,39 @@
     <img src="./uploads/gift.jpg" alt="Gift-ready Homemade with Love products" style="width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block">
   </div>
 
-  <!-- FINAL CTA -->
-  <div style="padding:40px 24px;text-align:center;background:#FBF6EE">
-    <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin:0 0 14px;color:#4A6B4E">Ready to Order?</h2>
-    <a href="mailto:homemadewithlove4usa@gmail.com" style="display:inline-block;text-decoration:none;background:#4A6B4E;color:#FFF9EE;font-weight:700;font-size:16px;padding:14px 26px;border-radius:8px;margin-bottom:14px">Email Us to Order</a>
-    <div style="font-size:15px;margin-bottom:8px"><a href="mailto:homemadewithlove4usa@gmail.com">homemadewithlove4usa@gmail.com</a></div>
-    <div style="font-size:14px;color:#5C5045">Tell us what you're looking for and we'll get back to you personally.</div>
+  <!-- FINAL CTA / CONTACT FORM -->
+  <div style="padding:40px 24px;background:#FBF6EE">
+    <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin:0 0 8px;color:#4A6B4E;text-align:center">Ready to Order?</h2>
+    <p style="font-size:14px;color:#5C5045;margin:0 0 22px;text-align:center">Tell us what you're looking for and we'll get back to you personally.</p>
+
+    <form id="hwl-contact-form" style="display:flex;flex-direction:column;gap:12px;max-width:420px;margin:0 auto">
+      <div style="position:absolute;left:-9999px" aria-hidden="true">
+        <label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <label style="font-size:13px;font-weight:700;color:#3B322A">
+        Name
+        <input type="text" name="name" required style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
+      </label>
+
+      <label style="font-size:13px;font-weight:700;color:#3B322A">
+        Email
+        <input type="email" name="email" required style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
+      </label>
+
+      <label style="font-size:13px;font-weight:700;color:#3B322A">
+        What would you like to order? Anything else we should know?
+        <textarea name="message" required rows="4" style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8;resize:vertical"></textarea>
+      </label>
+
+      <button type="submit" id="hwl-submit-btn" style="display:inline-block;background:#4A6B4E;color:#FFF9EE;font-weight:700;font-size:16px;padding:14px 26px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;margin-top:4px">Send Message</button>
+
+      <div id="hwl-form-status" role="status" style="font-size:14px;text-align:center;min-height:20px"></div>
+    </form>
+
+    <div style="text-align:center;margin-top:18px;font-size:14px;color:#5C5045">
+      Prefer email? <a href="mailto:homemadewithlove4usa@gmail.com">homemadewithlove4usa@gmail.com</a>
+    </div>
   </div>
 
   <!-- FOOTER -->
@@ -176,8 +203,52 @@ function hwlEmailFallback() {
     toast._hwlTimer = setTimeout(function () { toast.style.opacity = '0'; }, 3500);
   }
 }
-document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
-  a.addEventListener('click', hwlEmailFallback);
+// Delegated on document (not the individual nodes) because this page's
+// builder runtime re-renders content after initial load, which would
+// silently detach listeners bound directly to elements that get replaced.
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+  if (a) hwlEmailFallback();
+});
+
+document.addEventListener('submit', function (e) {
+  var hwlForm = e.target;
+  if (!hwlForm || hwlForm.id !== 'hwl-contact-form') return;
+  e.preventDefault();
+
+  var statusEl = document.getElementById('hwl-form-status');
+  var btn = document.getElementById('hwl-submit-btn');
+  var data = Object.fromEntries(new FormData(hwlForm).entries());
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  statusEl.style.color = '#5C5045';
+  statusEl.textContent = '';
+
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+    .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+    .then(function (result) {
+      if (result.ok) {
+        statusEl.style.color = '#4A6B4E';
+        statusEl.textContent = "Thanks! We'll get back to you soon.";
+        hwlForm.reset();
+      } else {
+        statusEl.style.color = '#9B3B34';
+        statusEl.textContent = (result.body && result.body.error) || 'Something went wrong. Please email us directly.';
+      }
+    })
+    .catch(function () {
+      statusEl.style.color = '#9B3B34';
+      statusEl.textContent = 'Something went wrong. Please email us directly.';
+    })
+    .finally(function () {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    });
 });
 </script>
 
