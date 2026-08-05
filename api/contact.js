@@ -47,7 +47,9 @@ module.exports = async function handler(req, res) {
     if (!resendRes.ok) {
       const errText = await resendRes.text();
       console.error('Resend error:', errText);
-      res.status(502).json({ error: 'Something went wrong sending your message. Please email us directly.' });
+      // TEMP DEBUG: surfacing the real error to the caller while we diagnose setup.
+      // Will be reverted to a generic message once sending is confirmed working.
+      res.status(502).json({ error: 'Something went wrong sending your message. Please email us directly.', debug: errText });
       return;
     }
 
