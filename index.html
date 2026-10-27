@@ -36,6 +36,7 @@
   "description": "Handmade, all-natural skin and body care — allergen-free, made in small batches in Bedford, VA.",
   "email": "homemadewithlove4usa@gmail.com",
   "url": "https://www.homemadewithlove4usa.com/",
+  "sameAs": ["https://www.instagram.com/debihackworth/"],
   "address": { "@type": "PostalAddress", "addressLocality": "Bedford", "addressRegion": "VA", "addressCountry": "US" },
   "areaServed": { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "addressLocality": "Bedford, VA" }, "description": "Local pickup within about 30 minutes of Bedford, VA" }
 }
@@ -53,6 +54,9 @@
     body { margin: 0; background: #FBF6EE; }
     a { color: #7A5C3E; }
     a:hover { color: #5C4429; }
+    @media (max-width: 389px) {
+      .hwl-nav-ig { display: none !important; }
+    }
   </style>
 </helmet>
 
@@ -64,7 +68,12 @@
       <img src="./uploads/logo.png" alt="Homemade with Love logo" style="height:32px;width:auto">
       <div style="font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:#4A6B4E">Homemade with Love</div>
     </div>
-    <a href="#hwl-contact-form" style="text-decoration:none;background:#4A6B4E;color:#FFF9EE;font-weight:700;font-size:13px;padding:9px 14px;border-radius:6px;white-space:nowrap">Order Now</a>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a class="hwl-nav-ig" href="https://www.instagram.com/debihackworth/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @debihackworth" style="display:flex;align-items:center;color:#4A6B4E;text-decoration:none">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.15" fill="currentColor"/></svg>
+      </a>
+      <a href="#hwl-contact-form" style="text-decoration:none;background:#4A6B4E;color:#FFF9EE;font-weight:700;font-size:13px;padding:9px 14px;border-radius:6px;white-space:nowrap">Order Now</a>
+    </div>
   </div>
 
   <!-- HEADER / HERO -->
@@ -125,6 +134,13 @@
           <div style="font-size:14px;color:#5C5045;line-height:1.4">Ready-to-use rollers blended in small batches for calm, everyday moments.</div>
         </div>
       </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#FFFDF8;border:1px solid #E7DCC9;border-radius:10px;padding:12px">
+        <img src="./uploads/p-nurturing.jpg" alt="Jar of herbal nurturing oil, herbs steeped in olive oil" style="width:88px;height:88px;flex:none;border-radius:8px;object-fit:cover">
+        <div>
+          <div style="font-weight:800;font-size:16px;margin-bottom:3px">Herbal Nurturing Oil &amp; Salve</div>
+          <div style="font-size:14px;color:#5C5045;line-height:1.45">Soothing and nurturing for dry, cracked lips — many people also use a little on scrapes, small cuts, and bruises. Just a few ingredients: echinacea, comfrey, plantain, calendula, yarrow, rosemary, chamomile, and California olive oil. Also made as a roller for easy carry, or a salve with cocoa, shea, and mango butter to keep skin moist and nourished. Message to order.</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -147,7 +163,7 @@
       <span style="font-size:20px;line-height:1">📍</span>
       <div>
         <div style="font-weight:800;font-size:16px;margin-bottom:4px;color:#4A6B4E">Local to Bedford, VA</div>
-        <div style="font-size:14px;line-height:1.5;color:#5C5045">Debby can meet up for local pickup within about 30 minutes of Bedford. You can also find Homemade with Love at craft fairs and community events around the area — follow us on Instagram for upcoming dates.</div>
+        <div style="font-size:14px;line-height:1.5;color:#5C5045">Debby can meet up for local pickup within about 30 minutes of Bedford. You can also find Homemade with Love at craft fairs and community events around the area — <a href="https://www.instagram.com/debihackworth/" target="_blank" rel="noopener noreferrer">follow us on Instagram</a> for upcoming dates.</div>
       </div>
     </div>
   </div>
@@ -199,12 +215,23 @@
     <div style="text-align:center;margin-top:18px;font-size:14px;color:#5C5045">
       Prefer email? <a href="mailto:homemadewithlove4usa@gmail.com">homemadewithlove4usa@gmail.com</a>
     </div>
+
+    <div style="max-width:420px;margin:26px auto 0;background:#FFFDF8;border:1px solid #E7DCC9;border-radius:12px;padding:16px 16px 18px;text-align:center">
+      <a href="https://www.instagram.com/debihackworth/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:#4A6B4E;font-weight:800;font-size:16px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.15" fill="currentColor"/></svg>
+        Follow along on Instagram
+      </a>
+      <p style="font-size:14px;line-height:1.5;color:#5C5045;margin:8px 0 14px">New batches, craft-fair dates, and what Debby is making — <a href="https://www.instagram.com/debihackworth/" target="_blank" rel="noopener noreferrer" style="font-weight:700;text-decoration:none">@debihackworth</a></p>
+      <a href="https://www.instagram.com/debihackworth/" target="_blank" rel="noopener noreferrer">
+        <img src="./uploads/p-nurturing.jpg" alt="Jar of herbal nurturing oil" style="width:100%;max-width:280px;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block;margin:0 auto">
+      </a>
+    </div>
   </div>
 
   <!-- FOOTER -->
   <div style="padding:22px 24px;border-top:1px solid #E7DCC9;text-align:center;font-size:13px;color:#8A7C68">
     <div style="margin-bottom:4px"><a href="mailto:homemadewithlove4usa@gmail.com">homemadewithlove4usa@gmail.com</a></div>
-    <div style="margin-bottom:8px"><a href="https://www.instagram.com/debihackworth/" target="_blank" rel="noopener">Follow us on Instagram</a></div>
+    <div style="margin-bottom:8px"><a href="https://www.instagram.com/debihackworth/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;text-decoration:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.15" fill="currentColor"/></svg>@debihackworth</a></div>
     <div>Homemade. US-Made. Made with Love.</div>
   </div>
 
