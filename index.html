@@ -194,23 +194,40 @@
 
       <label style="font-size:13px;font-weight:700;color:#3B322A">
         Name
-        <input type="text" name="name" required style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
+        <input type="text" name="name" required="true" autocomplete="name" style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
       </label>
 
       <label style="font-size:13px;font-weight:700;color:#3B322A">
         Email
-        <input type="email" name="email" required style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
+        <input type="email" name="email" required="true" autocomplete="email" style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
+      </label>
+
+      <label style="font-size:13px;font-weight:700;color:#3B322A">
+        Phone
+        <input type="tel" name="phone" required="true" autocomplete="tel" placeholder="(540) 555-0123" style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
+      </label>
+
+      <label style="font-size:13px;font-weight:700;color:#3B322A">
+        Pickup town or area
+        <input type="text" name="town" required="true" autocomplete="address-level2" placeholder="e.g. Bedford, Forest, Lynchburg" style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
+      </label>
+
+      <label style="font-size:13px;font-weight:700;color:#3B322A">
+        Preferred day / time <span style="font-weight:600;color:#8A7C68">(optional)</span>
+        <input type="text" name="when" autocomplete="off" placeholder="e.g. Saturday morning" style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8">
       </label>
 
       <label style="font-size:13px;font-weight:700;color:#3B322A">
         What would you like to order? Anything else we should know?
-        <textarea name="message" required rows="4" style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8;resize:vertical"></textarea>
+        <textarea name="message" required="true" rows="4" style="display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #E7DCC9;border-radius:8px;font-size:15px;font-family:inherit;box-sizing:border-box;background:#FFFDF8;resize:vertical"></textarea>
       </label>
 
       <button type="submit" id="hwl-submit-btn" style="display:inline-block;background:#4A6B4E;color:#FFF9EE;font-weight:700;font-size:16px;padding:14px 26px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;margin-top:4px">Send Message</button>
 
       <div id="hwl-form-status" role="status" style="font-size:14px;text-align:center;min-height:20px"></div>
     </form>
+
+    <p style="max-width:420px;margin:16px auto 0;text-align:center;font-size:14px;line-height:1.5;color:#5C5045">Orders are local pickup within about 30 minutes of Bedford. Debby will reach out to set up a time, and you pay in person.</p>
 
     <div style="text-align:center;margin-top:18px;font-size:14px;color:#5C5045">
       Prefer email? <a href="mailto:homemadewithlove4usa@gmail.com">homemadewithlove4usa@gmail.com</a>
